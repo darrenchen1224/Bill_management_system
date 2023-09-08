@@ -7,11 +7,11 @@
 </head>
 <body>
     <h2>Welcome</h2>
-    Account : <input ></br>
-    Password : <input ></br>
-    <form action="/home/authentication">
-        <button>Sign in</button></br>
-    </form>
+    <form action="/home/authentication" method="POST">
+        Account : <input type="text" name="account"></br>
+        Password : <input type="text" name="password"></br></br>
+        <button>Sign in</button>
+    </form><br>
     <form action="/create_account">
         <button>Create a new account</button>
     </form>

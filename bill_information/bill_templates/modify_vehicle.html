@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle information</title>
+</head>
+<body>
+    <h2>Modify your vehicle informaion</h2>
+    <form action="/bill_information/validate" method="POST">
+        Car model : 
+        <input type="radio" name="vehicle" value="car">Car 
+        <input type="radio" name="vehicle" value="scooter">Scooter</br>
+        number plate (fisrt) : <input name="first_num"></br>
+        number plate (last) : <input name="last_num"></br>
+        <button>send</button>
+    </form>
+    <form action="/bill_information/parking">
+        <button>cancel</button>
+    </form>
+</body>
+</html>

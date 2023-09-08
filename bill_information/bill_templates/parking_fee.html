@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking Fee</title>
+</head>
+<body>
+    <h2>Your vehicle info :</h2>
+    <p>vehicle : {{ vehicle }}</p>
+    <p>number plate : {{first_num}} - {{last_num}}</p>
+    <form action="/bill_information/modify_vehicle">
+        <button>Modify your vehicle setting</button>
+    </form><br>
+    <hr />
+    <p>Fee info :</p>
+    <form action="/bill_information/">
+        <button>Back to Bill management</button>
+    </form>
+</body>
+</html>
