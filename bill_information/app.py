@@ -13,19 +13,30 @@ def index():
 
 @bill_information.route("/parking_fee")
 def parking():
+    # 從資料庫中，取到該筆會員的停車費資訊
     db = current_app.config['account_database']
     collection = db.users
     account = session["account"]
     data = collection.find_one(
         {
-            "account" : account
+            "$and" : [
+                {
+                    "account" : account
+                },
+                {
+                    "has_vehicle" : True
+                }
+            ]
         }
     )
-    vehicle = data['vehicle']
-    first_num = data['first_num']
-    last_num = data['last_num']
-    return render_template("parking_fee.html", vehicle=vehicle, first_num=first_num, last_num=last_num)
-
+    if not data == None :
+        vehicle = data['vehicle']
+        first_num = data['first_num']
+        last_num = data['last_num']
+        parking_info = data['parking_info']
+        return render_template("parking_fee.html", vehicle=vehicle, first_num=first_num, last_num=last_num, parking_info=parking_info)
+    else :
+        return render_template("parking_fee.html")
 
 @bill_information.route("/modify_vehicle")
 def modify_vehicle():
@@ -51,9 +62,11 @@ def validate():
             },
             {
                 "$set" : {
+                    "has_vehicle" : True,
                     "vehicle" : vehicle,
                     "first_num" : first_num,
                     "last_num" : last_num,
+                    "parking_info" : "Update info every 0:00 a.m."
                 }
             }
         )
