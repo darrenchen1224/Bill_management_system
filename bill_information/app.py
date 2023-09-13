@@ -66,7 +66,7 @@ def validate():
                     "vehicle" : vehicle,
                     "first_num" : first_num,
                     "last_num" : last_num,
-                    "parking_info" : "Update info every 0:00 a.m."
+                    "parking_info" : "None"
                 }
             }
         )
