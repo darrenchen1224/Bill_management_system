@@ -28,4 +28,4 @@ app.register_blueprint(member, url_prefix='/member')
 
 app.register_blueprint(bill_information, url_prefix='/bill_information')
 
-app.run(port=3000, debug=True)
+app.run(port=3000)
